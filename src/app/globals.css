@@ -26,3 +26,7 @@ body {
 
 input[type="date"]::-webkit-calendar-picker-indicator {
 }
+
+*::-webkit-scrollbar {
+  display: none;
+}

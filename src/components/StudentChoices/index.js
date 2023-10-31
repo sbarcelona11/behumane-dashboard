@@ -17,7 +17,7 @@ const ClassOverview = ({data}) => {
         chart: {
             type: "donut",
         },
-        colors: ["#F7B733", "#4ABDAC", "#FC4A1A"],
+        colors: ["#4ABDAC", "#F7B733", "#FC4A1A"],
         labels: ["Low", "Medium", "High"],
         legend: {
             show: false,
@@ -26,10 +26,11 @@ const ClassOverview = ({data}) => {
         plotOptions: {
             pie: {
                 donut: {
+                    size: 50,
                     labels: {
                         show: true,
                         total: {
-                            show: false,
+                            show: true,
                             showAlways: false,
                             label: "Total",
                             formatter: function (w) {
@@ -43,7 +44,7 @@ const ClassOverview = ({data}) => {
             }
         },
         dataLabels: {
-            enabled: true,
+            enabled: false,
         },
         responsive: [
             {

@@ -6,7 +6,7 @@ const Cards = ({ data }) => {
   } = data;
   return (
     <>
-      <div className="grid grid-cols-1 md:gap-6 lg:grid-cols-3 2xl:gap-7.5 md:w-1/2">
+      <div className="flex md:gap-2 flex-col flex-wrap md:flex-row w-full justify-between">
         <div className="bg-white px-7.5 shadow-default my-5 md:my-1">
           <div className="flex justify-center items-center">
             <div className="pt-[85px] drop-shadow-lg px-[22px] h-full pb-8 relative bg-white flex justify-center w-full">

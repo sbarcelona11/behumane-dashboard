@@ -43,19 +43,24 @@ const DashboardPage = async () => {
       </section>
       <section
         id="colums"
-        className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5"
+        className="mt-4 flex flex-grow flex-col md:flex-row md:mt-6 md:gap-6"
       >
-        <div className="col-span-12 rounded-sm pt-7.5 mb-5 shadow-default sm:px-7.5 xl:col-span-6">
+        <div className="w-full w-rounded-sm pt-7.5 mb-5 shadow-default sm:px-7.5 md:w-1/2">
           <StudentChoices data={studentChoices}/>
+            <section id="cards" className="hidden md:flex py-5 w-full">
+                <Cards data={studentChoices}/>
+            </section>
         </div>
 
-        <div className="col-span-12 rounded-sm pt-7.5 mb-5 shadow-default sm:px-7.5 xl:col-span-6">
+        <div className="w-full rounded-sm pt-7.5 mb-5 shadow-default sm:px-7.5 md:w-1/2">
           <PerformanceInsight data={studentInsight}/>
         </div>
+
+        <section id="cards-mobile" className="md:hidden py-5 w-full">
+          <Cards data={studentChoices}/>
+        </section>
       </section>
-      <section id="cards">
-        <Cards data={studentChoices}/>
-      </section>
+
     </section>
   );
 };
