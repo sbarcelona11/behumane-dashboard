@@ -6,7 +6,13 @@ const generateKey = () => {
 };
 const Tabs = ({ children, name }) => {
   const findActiveTab = (a) => {
-    return a.reduce((accumulator, currentValue, i) => {
+      if(React.isValidElement(a)){
+          a = [a];
+          children = [children];
+      }
+      console.log("findActiveTab", a);
+
+    return a && a.reduce((accumulator, currentValue, i) => {
       if (currentValue.props.active) {
         return i;
       }

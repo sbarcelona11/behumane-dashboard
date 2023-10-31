@@ -4,26 +4,26 @@ import { Tabs, Tab } from "@/components/Common/Tabs";
 import React, { useEffect, useState } from "react";
 import Accordion from "@/components/Common/Accordion";
 
-const ClassOverview = (data) => {
-    console.log(data);
-  return (
-    <></>
-    // <div className="w-full">
-    //   <div className="w-[545px] h-[85px] relative">
-    //     <div className="w-[272px] h-[68.50px] left-[273px] top-[8.25px] absolute bg-emerald-400 bg-opacity-50" />
-    //     <div className="w-[21px] h-[12.38px] left-[189px] top-[43.74px] absolute text-black text-base font-medium">-10</div>
-    //     <div className="w-[25px] h-[12.38px] left-[94px] top-[43.74px] absolute text-black text-base font-medium ">-20</div>
-    //     <div className="w-6 h-[12.38px] left-0 top-[43.74px] absolute text-black text-base font-medium">-30</div>
-    //     <div className="w-[27px] h-[12.38px] left-[518px] top-[43.74px] absolute text-black text-base">+30</div>
-    //     <div className="w-[27px] h-[12.38px] left-[421px] top-[43.74px] absolute text-black text-base">+20</div>
-    //     <div className="w-[23px] h-[12.38px] left-[328px] top-[43.74px] absolute text-black text-base">+10</div>
-    //     <div className="w-[545px] h-[0px] left-0 top-[42.09px] absolute border border-black"></div>
-    //     <div className="w-[85px] h-[0px] left-[273px] top-0 absolute origin-top-left rotate-90 border border-black"></div>
-    //     <div className="w-2.5 h-[12.38px] left-[276px] top-[43.74px] absolute text-black text-base font-medium">0</div>
-    //   </div>
-    // </div>
-  );
-};
+// const ClassOverview = (data) => {
+//     console.log(data);
+//   return (
+//     <></>
+//     // <div className="w-full">
+//     //   <div className="w-[545px] h-[85px] relative">
+//     //     <div className="w-[272px] h-[68.50px] left-[273px] top-[8.25px] absolute bg-emerald-400 bg-opacity-50" />
+//     //     <div className="w-[21px] h-[12.38px] left-[189px] top-[43.74px] absolute text-black text-base font-medium">-10</div>
+//     //     <div className="w-[25px] h-[12.38px] left-[94px] top-[43.74px] absolute text-black text-base font-medium ">-20</div>
+//     //     <div className="w-6 h-[12.38px] left-0 top-[43.74px] absolute text-black text-base font-medium">-30</div>
+//     //     <div className="w-[27px] h-[12.38px] left-[518px] top-[43.74px] absolute text-black text-base">+30</div>
+//     //     <div className="w-[27px] h-[12.38px] left-[421px] top-[43.74px] absolute text-black text-base">+20</div>
+//     //     <div className="w-[23px] h-[12.38px] left-[328px] top-[43.74px] absolute text-black text-base">+10</div>
+//     //     <div className="w-[545px] h-[0px] left-0 top-[42.09px] absolute border border-black"></div>
+//     //     <div className="w-[85px] h-[0px] left-[273px] top-0 absolute origin-top-left rotate-90 border border-black"></div>
+//     //     <div className="w-2.5 h-[12.38px] left-[276px] top-[43.74px] absolute text-black text-base font-medium">0</div>
+//     //   </div>
+//     // </div>
+//   );
+// };
 
 // eslint-disable-next-line no-unused-vars
 const NumberLine = () => {
@@ -118,7 +118,7 @@ const IndividuaLSudenTabs = (data) => {
   return (
     <Tabs name="student">
       <Tab component={comp1(data)}>Social Skills</Tab>
-      <Tab component={comp1(data)}>Emotional Damage</Tab>
+      <Tab component={comp1(data)}>Emotional Management</Tab>
       <Tab component={comp1(data)}>Healthy Tech Habits</Tab>
     </Tabs>
   );
@@ -176,6 +176,7 @@ const StudentOverview = (data) => {
 };
 
 const PerformanceInsight = ({ data }) => {
+    // eslint-disable-next-line no-unused-vars
   const { class_overview, individual_students } = data;
   return (
     <div className="drop-shadow-lg gap-[15px] p-[30px] w-full flex bg-white h-full flex-col justify-between">
@@ -192,10 +193,10 @@ const PerformanceInsight = ({ data }) => {
           </div>
           <div className="flex flex-col">
             <Tabs name="performance">
-              <Tab component={ClassOverview(class_overview)}>
-                Class Overview
-              </Tab>
-              <Tab component={StudentOverview(individual_students)} active>
+              {/*<Tab component={ClassOverview(class_overview)}>*/}
+              {/*  Class Overview*/}
+              {/*</Tab>*/}
+              <Tab component={StudentOverview(individual_students)}>
                 Individual Students
               </Tab>
             </Tabs>

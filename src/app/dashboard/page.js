@@ -45,11 +45,11 @@ const DashboardPage = async () => {
         id="colums"
         className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5"
       >
-        <div className="col-span-12 rounded-sm bg-white pt-7.5 mb-5 shadow-default sm:px-7.5 xl:col-span-6">
+        <div className="col-span-12 rounded-sm pt-7.5 mb-5 shadow-default sm:px-7.5 xl:col-span-6">
           <StudentChoices data={studentChoices}/>
         </div>
 
-        <div className="col-span-12 rounded-sm bg-white pt-7.5 mb-5 shadow-default sm:px-7.5 xl:col-span-6">
+        <div className="col-span-12 rounded-sm pt-7.5 mb-5 shadow-default sm:px-7.5 xl:col-span-6">
           <PerformanceInsight data={studentInsight}/>
         </div>
       </section>

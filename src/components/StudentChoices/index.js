@@ -106,7 +106,7 @@ const StudentOverview = () => {
         return (
             <Tabs name="student">
                 <Tab component={comp1()}>Social Skills</Tab>
-                <Tab component={comp1()}>Emotional Damage</Tab>
+                <Tab component={comp1()}>Emotional Management</Tab>
                 <Tab component={comp1()}>Healthy Tech Habits</Tab>
             </Tabs>
         )
