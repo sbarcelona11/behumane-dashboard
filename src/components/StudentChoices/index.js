@@ -29,7 +29,7 @@ const ClassOverview = ({data}) => {
                     labels: {
                         show: true,
                         total: {
-                            show: true,
+                            show: false,
                             showAlways: false,
                             label: "Total",
                             formatter: function (w) {
