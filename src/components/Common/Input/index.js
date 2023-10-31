@@ -1,5 +1,5 @@
 import Icons from "@/components/Common/Icons";
-const Input = ({ type, placeholder, value, onChange }) => {
+const Input = ({ type, placeholder }) => {
   return (
     <>
       {type === "text" && (

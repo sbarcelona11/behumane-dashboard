@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import Accordion from "@/components/Common/Accordion";
 
 const ClassOverview = (data) => {
+    console.log(data);
   return (
     <></>
     // <div className="w-full">
@@ -24,6 +25,7 @@ const ClassOverview = (data) => {
   );
 };
 
+// eslint-disable-next-line no-unused-vars
 const NumberLine = () => {
   const numbers = [-30, -20, -10, 0, 10, 20, 30];
   const highlightedRange = [0, 20];
