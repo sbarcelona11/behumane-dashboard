@@ -10,7 +10,6 @@ const Tabs = ({ children, name }) => {
           a = [a];
           children = [children];
       }
-      console.log("findActiveTab", a);
 
     return a && a.reduce((accumulator, currentValue, i) => {
       if (currentValue.props.active) {

@@ -55,7 +55,7 @@ export default function RootLayout({ children }) {
                 setSidebarOpen={setSidebarOpen}
               />
               <main className="bg-[#F4F7FA]">
-                <div className="m-1 lg:ml-[200px] p-4 md:p-6 2xl:p-10 flex-1  h-screen overflow-y-auto">
+                <div className="lg:ml-[200px] p-4 md:p-6 2xl:p-10 flex-1 h-screen overflow-y-auto">
                   {children}
                 </div>
               </main>
