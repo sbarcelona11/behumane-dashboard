@@ -30,7 +30,7 @@ const ClassOverview = ({data}) => {
                     labels: {
                         show: true,
                         total: {
-                            show: true,
+                            show: false,
                             showAlways: false,
                             label: "Total",
                             formatter: function (w) {
@@ -44,7 +44,7 @@ const ClassOverview = ({data}) => {
             }
         },
         dataLabels: {
-            enabled: false,
+            enabled: true,
         },
         responsive: [
             {
