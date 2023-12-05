@@ -1,13 +1,23 @@
 "use client";
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { Input } from "@material-tailwind/react";
+
 
 const SignInPage = () => {
   const [user, setUser] = useState({ email: "", password: "" });
+  const [error, setError] = useState(false)
   const router = useRouter();
-  const [error, setError] = useState("");
+
+  useEffect(() => {
+    let timer = null;
+    if(error) {
+      timer = setTimeout(() => setError(false), 4000);
+    }
+    return () => clearTimeout(timer)
+  }, [error]);
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -19,7 +29,7 @@ const SignInPage = () => {
       if (response.status === 200 || response.success === true) {
         router.push("/dashboard");
       } else {
-        setError(response.error);
+        setError(true);
       }
     } catch (error) {
       console.log("error", error);
@@ -29,45 +39,42 @@ const SignInPage = () => {
   return (
     <>
       <>
-        <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+        <div className="rounded-sm bg-white shadow-default">
+          <div className="absolute top-0 left-0 p-6">
+            <Link href="/">
+                <Image
+                    src="/images/logo/logo.svg"
+                    alt="logo"
+                    width={69}
+                    height={81}
+                />
+            </Link>
+          </div>
           <div className="flex flex-wrap items-center">
-            <div className="hidden w-full xl:block xl:w-1/2">
-              <div className="text-center">
-                <Link className="" href="/">
-                  <Image
-                    className="block"
-                    src={"/images/design.png"}
-                    alt="Logo"
-                    width={640}
-                    height={360}
-                  />
-                </Link>
-              </div>
-            </div>
-
-            <div className="w-full border-stroke dark:border-strokedark xl:w-1/2 xl:border-l-2">
+            <div className="w-full">
               <div className="w-full p-4 sm:p-12.5 xl:p-17.5">
-                <h2 className="mb-9 text-2xl font-bold text-black sm:text-title-xl2">
-                  Sign In to BeHumane
+                <h2 className="mb-9 text-6xl font-bold text-black">
+                  Welcome Back!
                 </h2>
 
-                <form>
-                  <div className="mb-4">
-                    <label className="mb-2.5 block font-medium text-black dark:text-white">
-                      Email
-                    </label>
+                <form className="w-full">
+                  <div className="pb-4 mb-4">
                     <div className="relative">
-                      <input
-                        type="email"
-                        placeholder="Enter your email"
-                        className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
-                        value={user.email}
-                        onChange={(e) =>
-                          setUser({ ...user, email: e.target.value })
-                        }
+                      <Input
+                          variant="static"
+                          label="Email"
+                          color="teal"
+                          placeholder="Enter your email address"
+                          className="w-full bg-transparent py-4 pl-10 pr-10 outline-none focus:border-primary focus-visible:shadow-none"
+                          value={user.email}
+                            onChange={(e) =>  {
+                                setUser({ ...user, email: e.target.value })
+                            }}
+                          error={error}
                       />
 
-                      <span className="absolute right-4 top-4">
+
+                      <span className="absolute left-0 top-4">
                         <svg
                           className="fill-current"
                           width="22"
@@ -87,22 +94,23 @@ const SignInPage = () => {
                     </div>
                   </div>
 
-                  <div className="mb-6">
-                    <label className="mb-2.5 block font-medium text-black dark:text-white">
-                      Re-type Password
-                    </label>
+                  <div className="pb-6 mb-6 mt-6">
                     <div className="relative">
-                      <input
-                        type="password"
-                        placeholder="6+ Characters, 1 Capital letter"
-                        className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
-                        value={user.password}
-                        onChange={(e) =>
-                          setUser({ ...user, password: e.target.value })
-                        }
+                      <Input
+                          variant="static"
+                          label="Password"
+                          type="password"
+                          color="teal"
+                          placeholder="Enter your email address"
+                          className="w-full bg-transparent py-4 pl-10 pr-10 outline-none focus:border-primary focus-visible:shadow-none"
+                          value={user.password}
+                          onChange={(e) =>
+                              setUser({ ...user, password: e.target.value })
+                          }
+                          error={error}
                       />
 
-                      <span className="absolute right-4 top-4">
+                      <span className="absolute left-0 top-4">
                         <svg
                           className="fill-current"
                           width="22"
@@ -130,22 +138,23 @@ const SignInPage = () => {
                     <button
                       type="submit"
                       value="Sign In"
-                      className="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 text-dark transition bg-amber-400 hover:bg-amber-50"
+                      className="w-full cursor-pointer bg-orange-900 rounded-full p-2 text-white transition hover:bg-red-900 text-2xl"
                       onClick={onSubmit}
                     >
-                      Sign In
+                      Login
                     </button>
                   </div>
                 </form>
-                <div>
-                  {error && error.length > 0 && (
-                    <>
-                      <p className="text-sm text-red-500">{error}</p>
-                    </>
-                  )}
-                </div>
               </div>
             </div>
+          </div>
+          <div className="absolute bottom-0 right-0">
+            <Image
+                src="/images/art/ai-character.svg"
+                alt="logo"
+                width={424}
+                height={446}
+            />
           </div>
         </div>
       </>
