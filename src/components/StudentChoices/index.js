@@ -13,6 +13,25 @@ const ClassOverview = ({data}) => {
         digital_wellbeing
     } = data
 
+
+    const social_skills_values = [
+        social_skills.low || 0,
+        social_skills.medium || 0,
+        social_skills.high || 0
+    ]
+
+    const emotional_management_values = [
+        emotional_management.low || 0,
+        emotional_management.medium || 0,
+        emotional_management.high || 0
+    ]
+
+    const digital_wellbeing_values = [
+        digital_wellbeing.low || 0,
+        digital_wellbeing.medium || 0,
+        digital_wellbeing.high || 0
+    ]
+
     const options = {
         chart: {
             type: "donut",
@@ -71,24 +90,24 @@ const ClassOverview = ({data}) => {
             <h3 className="m-3">Real Time Data</h3>
             <div className="grid grid-col-1 md:grid-cols-12">
                 <div className="col-span-4">
-                    <Chart options={options} series={[social_skills.low, social_skills.medium, social_skills.high]} type="donut"/>
+                    <Chart options={options} series={social_skills_values} type="donut"/>
                     <div className="flex flex-col text-center">
                         <h4 className="text-gray-400">Social Skills</h4>
-                        <p className="py-3 mx-6">“{social_skills.name}”</p>
+                        <p className="py-3 mx-6">“{social_skills.name || ''}”</p>
                     </div>
                 </div>
                 <div className="col-span-4">
-                    <Chart options={options} series={[emotional_management.low, emotional_management.medium, emotional_management.high]} type="donut"/>
+                    <Chart options={options} series={emotional_management_values} type="donut"/>
                     <div className="flex flex-col text-center">
                         <h4 className="text-gray-400">Emotional Management</h4>
-                        <p className="py-3 mx-6">“{emotional_management.name}”</p>
+                        <p className="py-3 mx-6">“{emotional_management.name || ''}”</p>
                     </div>
                 </div>
                 <div className="col-span-4">
-                    <Chart options={options} series={[digital_wellbeing.low, digital_wellbeing.medium, digital_wellbeing.high]} type="donut"/>
+                    <Chart options={options} series={digital_wellbeing_values} type="donut"/>
                     <div className="flex flex-col text-center">
                         <h4 className="text-gray-400">Digital Wellbeing</h4>
-                        <p className="py-3 mx-6">“{digital_wellbeing.name}”</p>
+                        <p className="py-3 mx-6">“{digital_wellbeing.name || ''}”</p>
                     </div>
                 </div>
             </div>
