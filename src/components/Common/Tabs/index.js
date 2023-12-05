@@ -58,7 +58,7 @@ const Tabs = ({ children, name }) => {
  const Tab = ({ children, activeTab, currentTab, setActiveTab }) => {
   return (
     <>
-      <div
+      <div key={`element-${currentTab}-tab${currentTab}-${generateKey()}`}
         className={`flex flex-row px-5 py-1 cursor-pointer text-black ${
           activeTab === currentTab ? "text-blue-500 border-b border-b-blue-500" : "text-gray-500"
         }`}

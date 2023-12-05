@@ -24,8 +24,9 @@ const formatDateTime = (date) => {
 }
 
 const GameSession = ({data}) => {
+  // TODO: make a alias to class.name
   const {
-    class: { name },
+      class: { name } = "N/A",
       start_time,
       end_time,
       completion_percentage,
