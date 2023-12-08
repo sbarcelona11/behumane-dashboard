@@ -1,9 +1,9 @@
 "use client";
+import React, { useState } from "react";
 import { Tabs, Tab } from "@/components/Common/Tabs";
 import Input from "@/components/Common/Input";
 import Chart from "@/components/Common/Charts";
 import Accordion from "@/components/Common/Accordion"
-import React, { useState } from "react";
 
 const ClassOverview = ({data}) => {
 
@@ -15,21 +15,21 @@ const ClassOverview = ({data}) => {
 
 
     const social_skills_values = [
-        social_skills.low || 0,
-        social_skills.medium || 0,
-        social_skills.high || 0
+        social_skills?.low || 0,
+        social_skills?.medium || 0,
+        social_skills?.high || 0
     ]
 
     const emotional_management_values = [
-        emotional_management.low || 0,
-        emotional_management.medium || 0,
-        emotional_management.high || 0
+        emotional_management?.low || 0,
+        emotional_management?.medium || 0,
+        emotional_management?.high || 0
     ]
 
     const digital_wellbeing_values = [
-        digital_wellbeing.low || 0,
-        digital_wellbeing.medium || 0,
-        digital_wellbeing.high || 0
+        digital_wellbeing?.low || 0,
+        digital_wellbeing?.medium || 0,
+        digital_wellbeing?.high || 0
     ]
 
     const options = {
