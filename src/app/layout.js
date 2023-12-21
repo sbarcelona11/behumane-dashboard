@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { usePathname } from "next/navigation";
 import { League_Spartan, Poppins } from "next/font/google";
 import Sidebar from "@/components/Sidebar";
@@ -22,9 +22,9 @@ export const popins = Poppins({
 
 export default function RootLayout({ children }) {
   const pathname = usePathname();
-  const pathNameIncludes = (path) => {
+  const pathNameIncludes = useCallback((path) => {
     return pathname.includes(path);
-  };
+  });
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [headerTitle, setHeaderTitle] = useState("Educator Dashboard");
   const [menuItems, setMenuItems] = useState(StudentSidebarItems);
@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
       setHeaderTitle("Teacher Portal");
       setMenuItems(EducatorSidebarItems);
     }
-  }, [pathname]);
+  }, [pathNameIncludes, pathname]);
 
   useEffect(() => {
     if (typeof window !== "undefined") {

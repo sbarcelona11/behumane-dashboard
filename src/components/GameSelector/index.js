@@ -226,7 +226,7 @@ const GameSelector = () => {
 
   const handleSelectScenario = (index) => {
     const scenarioElement = getScenarioElements(selected);
-    const scenario = scenarioElement[index-1];
+    const scenario = scenarioElement.filter(x => x.id === index)[0];
     // isSelected
     if (!selectedScenarios.find(x => x.id === scenario.id) && selectedScenarios.length < 3) {
         const newScenario = {...scenario, isSelected: true};
