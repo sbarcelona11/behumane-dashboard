@@ -2,22 +2,25 @@
 import React, { useState } from "react";
 
 const generateKey = () => {
-    return Math.trunc(Math.random() * 1000).toString();
+  return Math.trunc(Math.random() * 1000).toString();
 };
 const Tabs = ({ children, name }) => {
   const findActiveTab = (a) => {
-      if(React.isValidElement(a)){
-          a = [a];
-          children = [children];
-      }
+    if (React.isValidElement(a)) {
+      a = [a];
+      children = [children];
+    }
 
-    return a && a.reduce((accumulator, currentValue, i) => {
-      if (currentValue.props.active) {
-        return i;
-      }
+    return (
+      a &&
+      a.reduce((accumulator, currentValue, i) => {
+        if (currentValue.props.active) {
+          return i;
+        }
 
-      return accumulator;
-    }, 0);
+        return accumulator;
+      }, 0)
+    );
   };
 
   const [activeTab, setActiveTab] = useState(findActiveTab(children));
@@ -28,14 +31,14 @@ const Tabs = ({ children, name }) => {
         {children.map((item, i) => {
           return (
             <>
-                <Tab
-                  key={`tab-${i}-${name}-${generateKey()}`}
-                  currentTab={i}
-                  activeTab={activeTab}
-                  setActiveTab={setActiveTab}
-                >
-                  {item.props.children}
-                </Tab>
+              <Tab
+                key={`tab-${i}-${name}-${generateKey()}`}
+                currentTab={i}
+                activeTab={activeTab}
+                setActiveTab={setActiveTab}
+              >
+                {item.props.children}
+              </Tab>
             </>
           );
         })}
@@ -43,7 +46,8 @@ const Tabs = ({ children, name }) => {
       <div className="flex flex-row p-5">
         {children.map((item, i) => {
           return (
-            <div key={`element-${i}-${name}-${generateKey()}`}
+            <div
+              key={`element-${i}-${name}-${generateKey()}`}
               className={`w-full ${i === activeTab ? "visible" : "hidden"}`}
             >
               {item.props.component}
@@ -53,14 +57,17 @@ const Tabs = ({ children, name }) => {
       </div>
     </>
   );
-}
+};
 
- const Tab = ({ children, activeTab, currentTab, setActiveTab }) => {
+const Tab = ({ children, activeTab, currentTab, setActiveTab }) => {
   return (
     <>
-      <div key={`element-${currentTab}-tab${currentTab}-${generateKey()}`}
+      <div
+        key={`element-${currentTab}-tab${currentTab}-${generateKey()}`}
         className={`flex flex-row px-5 py-1 cursor-pointer text-black ${
-          activeTab === currentTab ? "text-blue-500 border-b border-b-blue-500" : "text-gray-500"
+          activeTab === currentTab
+            ? "text-blue-500 border-b border-b-blue-500"
+            : "text-gray-500"
         }`}
         onClick={() => setActiveTab(currentTab)}
       >
@@ -68,9 +75,6 @@ const Tabs = ({ children, name }) => {
       </div>
     </>
   );
-}
+};
 
-export {
-    Tabs,
-    Tab
-}
+export { Tabs, Tab };

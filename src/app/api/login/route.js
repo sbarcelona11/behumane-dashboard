@@ -7,7 +7,7 @@ export async function POST(request) {
   if (email === "" || password === "") {
     return NextResponse.json(
       {
-        error: "Invalid Credentials, try again",
+        error: "Email or password is incorrect",
       },
       {
         status: 401,

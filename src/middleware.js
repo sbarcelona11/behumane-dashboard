@@ -17,9 +17,10 @@ export const config = {
   matcher: [
     "/auth/sign-in",
     "/dashboard",
-    "/dashboard/individual-students",
-    "/dashboard/group-dynamics",
-    "/dashboard/emotional-intelligence",
-    "/dashboard/action-items",
+    "/dashboard/student/individual-students",
+    "/dashboard/student/group-dynamics",
+    "/dashboard/student/emotional-intelligence",
+    "/dashboard/student/action-items",
+    "/dashboard/educator",
   ],
 };

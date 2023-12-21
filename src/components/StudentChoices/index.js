@@ -13,21 +13,21 @@ const ClassOverview = ({ data }) => {
   } = data;
 
   const social_skills_values = [
-    social_skills?.low,
-    social_skills?.medium,
-    social_skills?.high,
+    social_skills.low,
+    social_skills.medium,
+    social_skills.high,
   ];
 
   const emotional_management_values = [
-    emotional_management?.low,
-    emotional_management?.medium,
-    emotional_management?.high,
+    emotional_management.low,
+    emotional_management.medium,
+    emotional_management.high,
   ];
 
   const digital_wellbeing_values = [
-    digital_wellbeing?.low,
-    digital_wellbeing?.medium,
-    digital_wellbeing?.high,
+    digital_wellbeing.low,
+    digital_wellbeing.medium,
+    digital_wellbeing.high,
   ];
 
   const options = {

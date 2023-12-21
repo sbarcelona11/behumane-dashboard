@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import Accordion from "@/components/Common/Accordion";
 
 const ClassOverview = (data) => {
-    console.log(data);
+  console.log(data);
   return (
     <></>
     // <div className="w-full">
@@ -167,9 +167,42 @@ const StudentOverview = (data) => {
   );
 };
 
+const class_overview_default = {
+  social_awareness_and_relationship_skills: 0,
+  self_awareness_and_self_management: 0,
+  use_of_technology: 0,
+};
+
+const individual_students_default = [
+  {
+    student: {
+      id: 0,
+      class_id: 0,
+      first_name: "",
+      last_name: "",
+    },
+    scenario: {
+      id: 0,
+      name: "",
+      category: "SOCIAL_SKILLS",
+      learning_objective: "",
+      time_required: 0,
+      points: 0,
+    },
+    characters: [],
+    transcript: "",
+    personalized_summary: "",
+    trend_indicators: [],
+    actionable_feedback_and_recomendations: [],
+  },
+];
+
 const PerformanceInsight = ({ data }) => {
-    // eslint-disable-next-line no-unused-vars
-  const { class_overview, individual_students } = data;
+  // eslint-disable-next-line no-unused-vars
+  const {
+    class_overview = class_overview_default,
+    individual_students = individual_students_default,
+  } = data;
   return (
     <div className="drop-shadow-lg gap-[15px] p-[30px] w-full flex bg-white h-auto flex-col justify-between">
       <div className="flex justify-center items-center w-full">

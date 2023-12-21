@@ -1,36 +1,34 @@
 import Icons from "@/components/Common/Icons";
 import moment from "moment";
-import humanizeDuration from "humanize-duration"
+import humanizeDuration from "humanize-duration";
 
 // convert iso 6861 to local time
 const iso8601DurationToDate = (isoDuration) => {
   const duration = moment.duration(isoDuration);
-  return humanizeDuration(duration.asMilliseconds(), {round: true});
-}
-
+  return humanizeDuration(duration.asMilliseconds(), { round: true });
+};
 
 const formatDateTime = (date) => {
   const datetime = new Date(date);
   // Format the date to YYYY-MM-DD
-  return datetime
-    .toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-      hour: "numeric",
-      minute: "numeric",
-      hour12: true,
-    })
-}
+  return datetime.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+  });
+};
 
-const GameSession = ({data}) => {
+const GameSession = ({ data }) => {
   // TODO: make a alias to class.name
   const {
-      class: { name } = "N/A",
-      start_time,
-      end_time,
-      completion_percentage,
-      active_time,
+    class: { name } = "N/A",
+    start_time,
+    end_time,
+    completion_percentage,
+    active_time,
   } = data;
 
   return (

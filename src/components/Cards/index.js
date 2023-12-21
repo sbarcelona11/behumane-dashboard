@@ -49,7 +49,9 @@ const Cards = ({ data }) => {
               </p>
               <div className="gap-[27px] flex flex-col justify-between items-center h-full w-full text-center">
                 <p className="font-[500] text-[#3354EC80] text-2xl h-11 w-28">
-                  {reflection_and_understanding ? reflection_and_understanding : 'Session in progress'}
+                  {reflection_and_understanding
+                    ? reflection_and_understanding
+                    : "Session in progress"}
                 </p>
                 <p className="font-[400] text-[#3A3B3C] h-[33px] w-36 text-xs">
                   of students filled out reflection surveys for this scenario

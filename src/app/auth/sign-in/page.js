@@ -1,22 +1,25 @@
 "use client";
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Input } from "@material-tailwind/react";
 
-
 const SignInPage = () => {
   const [user, setUser] = useState({ email: "", password: "" });
-  const [error, setError] = useState(false)
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const router = useRouter();
 
   useEffect(() => {
     let timer = null;
-    if(error) {
-      timer = setTimeout(() => setError(false), 4000);
+    if (error) {
+      timer = setTimeout(() => {
+        setError(false);
+        setErrorMessage("");
+      }, 4000);
     }
-    return () => clearTimeout(timer)
+    return () => clearTimeout(timer);
   }, [error]);
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -30,6 +33,7 @@ const SignInPage = () => {
         router.push("/dashboard");
       } else {
         setError(true);
+        setErrorMessage(response.error);
       }
     } catch (error) {
       console.log("error", error);
@@ -42,18 +46,18 @@ const SignInPage = () => {
         <div className="rounded-sm bg-white shadow-default">
           <div className="absolute top-0 left-0 p-6">
             <Link href="/">
-                <Image
-                    src="/images/logo/logo.svg"
-                    alt="logo"
-                    width={69}
-                    height={81}
-                />
+              <Image
+                src="/images/logo/logo.svg"
+                alt="logo"
+                width={69}
+                height={81}
+              />
             </Link>
           </div>
-          <div className="flex flex-wrap items-center">
+          <div className="flex flex-wrap items-center w-[434px] text-center">
             <div className="w-full">
               <div className="w-full p-4 sm:p-12.5 xl:p-17.5">
-                <h2 className="mb-9 text-6xl font-bold text-black">
+                <h2 className="mb-14 text-5xl font-bold text-black">
                   Welcome Back!
                 </h2>
 
@@ -61,18 +65,17 @@ const SignInPage = () => {
                   <div className="pb-4 mb-4">
                     <div className="relative">
                       <Input
-                          variant="static"
-                          label="Email"
-                          color="teal"
-                          placeholder="Enter your email address"
-                          className="w-full bg-transparent py-4 pl-10 pr-10 outline-none focus:border-primary focus-visible:shadow-none"
-                          value={user.email}
-                            onChange={(e) =>  {
-                                setUser({ ...user, email: e.target.value })
-                            }}
-                          error={error}
+                        variant="static"
+                        label="Email"
+                        color="teal"
+                        placeholder="Enter your email address"
+                        className="w-full bg-transparent py-4 pl-10 pr-10 outline-none focus:border-primary focus-visible:shadow-none"
+                        value={user.email}
+                        onChange={(e) => {
+                          setUser({ ...user, email: e.target.value });
+                        }}
+                        error={error}
                       />
-
 
                       <span className="absolute left-0 top-4">
                         <svg
@@ -97,17 +100,17 @@ const SignInPage = () => {
                   <div className="pb-6 mb-6 mt-6">
                     <div className="relative">
                       <Input
-                          variant="static"
-                          label="Password"
-                          type="password"
-                          color="teal"
-                          placeholder="Enter your email address"
-                          className="w-full bg-transparent py-4 pl-10 pr-10 outline-none focus:border-primary focus-visible:shadow-none"
-                          value={user.password}
-                          onChange={(e) =>
-                              setUser({ ...user, password: e.target.value })
-                          }
-                          error={error}
+                        variant="static"
+                        label="Password"
+                        type="password"
+                        color="teal"
+                        placeholder="Enter your email address"
+                        className="w-full bg-transparent py-4 pl-10 pr-10 outline-none focus:border-primary focus-visible:shadow-none"
+                        value={user.password}
+                        onChange={(e) =>
+                          setUser({ ...user, password: e.target.value })
+                        }
+                        error={error}
                       />
 
                       <span className="absolute left-0 top-4">
@@ -143,6 +146,9 @@ const SignInPage = () => {
                     >
                       Login
                     </button>
+                    <div className="w-full text-center mt-6 text-red-400 font-medium">
+                      {error && errorMessage && <p>{errorMessage}</p>}
+                    </div>
                   </div>
                 </form>
               </div>
@@ -150,10 +156,10 @@ const SignInPage = () => {
           </div>
           <div className="absolute bottom-0 right-0">
             <Image
-                src="/images/art/ai-character.svg"
-                alt="logo"
-                width={424}
-                height={446}
+              src="/images/art/ai-character.svg"
+              alt="logo"
+              width={424}
+              height={446}
             />
           </div>
         </div>

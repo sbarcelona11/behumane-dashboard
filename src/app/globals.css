@@ -23,10 +23,42 @@ body {
   background: rgb(var(--foreground-rgb));
 }
 
-
 input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 *::-webkit-scrollbar {
   display: none;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  position: relative;
+  /*top: 0 !important;*/
+  bottom: 0 !important;
+  /*background-color: white;*/
+  background-position: center;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  padding: 23px 23px;
+  border-radius: 100%;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  content: "" !important;
+}
+
+.swiper-button-prev {
+  background-image: url("/images/icons/arrow-right-circle.svg") !important;
+}
+
+.swiper-button-next {
+  background-image: url("/images/icons/arrow-right-circle.svg");
+  rotate: 180deg;
+}
+
+.swiper-pagination-bullet{
+  width: 40px;
+  height: 40px;
+  background-color: red;
 }
